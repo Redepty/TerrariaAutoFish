@@ -1,0 +1,1 @@
+It's auto-fish bot for game Terraria, that works with OpenCV and can catch only crates
