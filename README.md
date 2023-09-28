@@ -9,4 +9,4 @@ the label from sonar potion was in the small window, and turn on the bot</p>
 <h2>How to catch another items by bot?</h2>
 <p>You can write your items in <b>loot.txt</b>, by default there are crates (crate) and oysters there</p>
 
-<h6>sorry 4 bad english</h6>
+<p>sorry 4 bad english</p>
