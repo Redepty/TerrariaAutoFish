@@ -6,6 +6,7 @@ import pytesseract
 from ahk import AHK
 from fuzzywuzzy import fuzz
 from utils import queryMousePosition
+from lootcheck import LootCheck
 
 ahk = AHK()
 
@@ -14,9 +15,10 @@ class Bot:
 	def __init__(self):
 		print("Press q to activate bot!")
 		self.title = "Terraria AutoFish bot"
-		self.drink_time = 999999999999999999999999
+		self.drink_time = 240
 		self.sct = mss.mss()
 		self.active = False
+		self.loot_check = LootCheck()
 
 	def click(self):
 		ahk.click()
@@ -72,11 +74,9 @@ class Bot:
 
 			self.show(self.title, img)
 
-			if (((fuzz.ratio(pcm6.lower(), 'crate')) > 50 or (fuzz.ratio(pcm7.lower(), 'crate')) > 50)
-			or ('crate' in pcm6.lower() or 'crate' in pcm7.lower())):
-				print(f"{pcm6} is a crate ")
+			if self.loot_check.check(pcm6, pcm7):
 				self.catch()
 
 			else:
-				pass
-				print("it's not a crate")
+				if pcm6 != " \n" and pcm7 != " \n" and pcm6 != "\n" and pcm7 != "\n" and pcm6 != " " and pcm7 != " " and pcm6 != "\n" and pcm7 != "":
+					print(f"{pcm6} is not a crate")
